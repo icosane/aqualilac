@@ -1,7 +1,6 @@
 from numpy import *
 from scipy.integrate import odeint
 import matplotlib.pyplot as plt
-import numba
 
 N = 500  #число осциляторов
 
@@ -16,7 +15,7 @@ omega = random.uniform(1,5,N)
 #omega = linspace(1,5,N)
 #omega = 2.99
 
-@numba.njit
+
 def kuramoto(theta,t,omega,K,N): 			 
     A,B = sin(theta), cos(theta)
     return omega + (K/N)*(B*sum(A)-A*sum(B))

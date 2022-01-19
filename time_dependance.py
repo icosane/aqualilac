@@ -33,23 +33,14 @@ d2 = array([i**2 for i in S2])
 r = (1.0/N)*sqrt(d1 + d2)
 
 #построение графиков
-#plt.subplot(1, 2, 1)
 fig1, (ax1, ax2) = plt.subplots(1, 2, figsize=(20,6))
-@numba.njit
+
 for i in range(N):
 	ax1.plot(t, sin(omega[i]*t+theta[:,i]))
 ax1.set(xlabel='t', ylabel='sin(ω(t)+θ)')
 
-#plt.xlabel('t')
-#plt.ylabel('sin(ω(t)+θ)')
-
 ax2.plot(t, r)
 ax2.set(xlabel='t', ylabel='r (t)')
-
-#plt.subplot(1, 2, 2)
-#plt.plot(t, r)
-#plt.xlabel('t')
-#plt.ylabel('r (t)')
 
 plt.tight_layout()
 plt.grid()
